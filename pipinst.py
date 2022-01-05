@@ -38,5 +38,3 @@ def pipin(*mods):
     else:
         print("\nFailed to install: "+" , ".join(unable)+"\n")
         return 1
-
-pipin("colorama","pygame")
