@@ -12,7 +12,8 @@ def installPip():
         os.system("python3 get-pip.py")
         os.remove("get-pip.py")
 
-def pipin(mods):
+def pipin(*mods):
+    mods = [m for m in mods]
     unable = []
     for mod in mods:
         try:
@@ -37,3 +38,5 @@ def pipin(mods):
     else:
         print("\nFailed to install: "+" , ".join(unable)+"\n")
         return 1
+
+pipin("colorama","pygame")
