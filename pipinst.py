@@ -20,16 +20,20 @@ def pipin(*mods):
             importlib.import_module(mod)
         except:
             try:
-                os.system("pip install "+mod)
+                if os.system("pip install "+mod) != 0:
+                    raise Exception
             except:
                 try:
-                    os.system("pip3 install "+mod)
+                    if os.system("pip3 install "+mod) != 0:
+                        raise Exception
                 except:
                     try:
-                        os.system("python -m pip install "+mod)
+                        if os.system("python -m pip install "+mod) != 0:
+                            raise Exception
                     except:
                         try:
-                            os.system("python3 -m pip install "+mod)
+                            if os.system("python3 -m pip install "+mod) != 0:
+                                raise Exception
                         except:
                             unable.append(mod)
 
