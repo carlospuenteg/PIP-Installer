@@ -17,25 +17,22 @@ def pipin(*mods):
     unable = []
     for mod in mods:
         try:
-            importlib.import_module(mod)
+            if os.system("pip install "+mod) != 0:
+                raise Exception
         except:
             try:
-                if os.system("pip install "+mod) != 0:
+                if os.system("pip3 install "+mod) != 0:
                     raise Exception
             except:
                 try:
-                    if os.system("pip3 install "+mod) != 0:
+                    if os.system("python -m pip install "+mod) != 0:
                         raise Exception
                 except:
                     try:
-                        if os.system("python -m pip install "+mod) != 0:
+                        if os.system("python3 -m pip install "+mod) != 0:
                             raise Exception
                     except:
-                        try:
-                            if os.system("python3 -m pip install "+mod) != 0:
-                                raise Exception
-                        except:
-                            unable.append(mod)
+                        unable.append(mod)
 
     if (not unable):
         return 0  # print("\nInstallation COMPLETE!\n")
