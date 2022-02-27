@@ -33,6 +33,13 @@ def pipin(*mods):
                             raise Exception
                     except:
                         unable.append(mod)
+                        
+
+"""
+You can this to your code so that it installs the modules if it can or stops the execution if it can't
+if pipin("pygame","neat-python"):
+    exit()
+"""
 
     if (not unable):
         return 0  # print("\nInstallation COMPLETE!\n")
